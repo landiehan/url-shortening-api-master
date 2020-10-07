@@ -1,0 +1,103 @@
+.head {
+    display: flex;
+    align-items: center;
+    height: 73px;
+    position: relative;
+    @media screen and (min-width: $bp-large) {
+        margin-top: 4rem;
+    }
+
+    &-brand {
+        font-size: 0;
+    }
+
+    &-menu {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        &-switcher {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background-image: url(../images/icon-hamburger.svg);
+            cursor: pointer;
+            &-hide {
+                display: none;
+            }
+            @media screen and (min-width: $bp-large) {
+                display: none;
+            }
+        }
+
+        input[type='checkbox']:checked ~ &-nav {
+            display: block;
+            width: calc(100% - 4rem);
+            position: absolute;
+            top: 73px;
+
+            color: white;
+            background-color: $dark-violet;
+            border-radius: 1rem;
+        }
+        &-nav {
+            display: none;  
+            width: 100%; 
+            padding: 2rem;
+            font-weight: $font-bold;
+            text-align: center;          
+            
+            li {
+                margin: 2rem 0;
+            }     
+            & + ul > li {
+                margin-top: 0;
+            }
+
+            &-ul_sign {
+                &::before {
+                    content: '';
+                    display: block;
+                    border-top: 1px solid rgba(white, .2);
+                    margin: 2rem 0;
+                }
+
+                li:last-of-type {
+                    line-height: 4rem;
+                    border-radius: 2rem;
+                    background-color: $cyan;
+                }                 
+            }      
+
+            @media screen and (min-width: $bp-large) {
+                margin-left: 2rem;
+                color: gray;
+                display: flex;
+                justify-content: space-between;
+
+                ul {
+                    display: flex;
+                    align-items: center;
+                    li {
+                        margin: 0 2rem;
+                    }
+                }
+                ul > li {
+                    margin-left: 0;
+                }
+
+                &-ul_sign {
+                    &::before {
+                        content: none;
+                    }
+
+                    li:last-of-type {
+                        color: white;
+                        padding: 0 2rem;
+                    }
+                }
+            }
+        }        
+    }
+}

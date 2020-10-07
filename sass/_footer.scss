@@ -1,0 +1,36 @@
+.footer {
+    background-color: $very-dark-violet;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 0;
+    &-brand {
+        svg path {
+            fill: white;
+        }
+    }
+
+    &-nav-links {
+        &__title {
+            color: white;
+            margin: 3rem 0 2rem;
+        }
+        &__list {
+            color: $grayish-violet;
+            li {
+                margin: 1rem 0;
+            }
+        }
+
+        &-social {
+            ul {
+                display: flex;
+                align-items: center;    
+                li {
+                    margin: 3rem 1rem 0;
+                }            
+            }
+        }
+    }
+}
