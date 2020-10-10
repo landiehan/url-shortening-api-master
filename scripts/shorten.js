@@ -1,6 +1,7 @@
 const sectionResult = document.querySelector('.main-shorten');
 const form = document.querySelector('.main-shorten-form');
-const inputURL = document.querySelector('.main-shorten-form input');
+const inputURL = document.querySelector('.main-shorten-form-input_wrapper input');
+const errorMsg = document.querySelector('.main-shorten-form-input_wrapper p');
 
 const baseURL = 'https://rel.ink/api/links/';
 
@@ -10,10 +11,15 @@ function shortenURL(e) {
     e.preventDefault();
 
     if (!inputURL.value) {
-        inputURL.parentNode.classList.add('error-input__empty');
+        inputURL.style.border = '2px solid hsl(0, 87%, 67%)';
+        inputURL.style.color = 'hsl(0, 87%, 67%)';
+        errorMsg.style.height = '2rem';
+        errorMsg.textContent = 'Please enter a link!';
     } else {
-        inputURL.parentNode.classList.remove('error-input__empty');
-        inputURL.value = '';
+        errorMsg.style.height = '1.5rem';
+        errorMsg.textContent = '';
+        inputURL.style.border = 'none';
+        inputURL.style.color = 'unset';
 
         fetch(baseURL,
         {
@@ -30,7 +36,10 @@ function shortenURL(e) {
         })
         .then(resJson => {
             displayResults(resJson.hashid);
-        });        
+        })
+        .then( () => {
+            inputURL.value = '';
+        });
     };
 }
 

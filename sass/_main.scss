@@ -3,7 +3,7 @@
         display: flex;
         flex-direction: column; 
         margin-right: 0;     
-        @media screen and (min-width: $bp-large) {
+        @media screen and (min-width: $bp-small) {
             flex-direction: row-reverse;
             justify-content: space-between;
             align-items: center;
@@ -40,7 +40,7 @@
                 padding: 1rem 3rem;
             }            
             
-            @media screen and (min-width: $bp-large) {
+            @media screen and (min-width: $bp-small) {
                 margin-left: 0;
                 max-width: 52rem;
                 text-align: start;
@@ -59,7 +59,7 @@
         &::after {
             content: '';
             position: absolute;
-            top: 14.5rem;
+            top: 13rem;
             bottom: 0;
             left: 0;
             right: 0;
@@ -70,8 +70,6 @@
         &-form {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
 
             padding: 2rem;
             border-radius: 1rem;
@@ -80,56 +78,41 @@
             background-repeat: no-repeat;
             background-position: right top;
 
-            * {
-                font-family: $font-default;
-                font-size: 1.8rem;
-                width: 100%;
-                border: none;
-                border-radius: .5rem;
-            }
-            
-            div.error-input__empty {
+            &-input_wrapper {
                 input {
-                    border: 2px solid $red;
-                    &::placeholder {
-                        color: $red;
-                    }
+                    width: 100%;
+                    padding: 1rem;
+                    border-radius: .5rem;
                 }
-                &::after {
-                    content: 'Please add a link';
-                    color: $red;
-                    display: block;
+                p {
+                    height: 1.5rem;
+                    font-size: 1.2rem;
                     font-style: italic;
-                    font-size: 1.3rem;
-                    line-height: 2;
+                    color: $red;
                 }
             }
 
-            input {
-                padding: 1.5rem;
-            }
-            button {
-                padding: 1.5rem;
+            &-button {
                 font-weight: $font-bold;
                 color: white;
                 background-color: $cyan;
-                cursor: pointer;
+                padding: 1rem;
+                border-radius: .5rem;
             }
 
-            @media screen and (min-width: $bp-large) {
+            @media screen and (min-width: $bp-small) {
                 flex-direction: unset;
                 padding: 4rem;
                 background-image: url(../images/bg-shorten-desktop.svg);
+                max-width: 1110px;
 
                 * {
                     border-radius: 1rem;
                 }
-                input {
-                    flex: 4;
-                }
+
                 button {
-                    flex: 1;
-                    margin-left: 2rem;
+                    flex: 200px;
+                    margin-left: 1.5rem;
                 }
             }
         }
@@ -254,6 +237,7 @@
         background-color: $dark-violet;
         background-image: url(../images/bg-boost-mobile.svg);
         background-repeat: no-repeat;
+        background-position: right;
         height: 300px;
 
         &__title {
@@ -267,7 +251,7 @@
             font-weight: $font-bold;
         }
 
-        @media screen and (min-width: $bp-large) {
+        @media screen and (min-width: $bp-small) {
             background-image: url(../images/bg-boost-desktop.svg);
             height: 250px;
         }
