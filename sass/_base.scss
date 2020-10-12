@@ -2,9 +2,36 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font: inherit;
     border: none;
 }
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: $font-default;
+}
+
+/* BUTTON EXTEND */
+%button-rounded_box {
+    padding: 1rem 3rem;    
+    border-radius: 5px;
+    /* white font & cyan background */
+    color: white;
+    background-color: $cyan;
+}
+
+%width-controller {
+    margin: 0 2rem;
+    @media screen and (min-width: $bp-small) {
+        max-width: 1110px;
+        margin: 0 auto;
+    }
+}
+
+// 😕❓
 
 *:focus {
     outline: none;
@@ -21,29 +48,13 @@ ul {
 
 button {
     &:active {
-        opacity: .7;
+        background-color: lighten($cyan, 30%);
     }
     cursor: pointer;
+    font: inherit;
 }
 
 input {
     text-decoration: none;
-}
-
-html {
-    font-size: 62.5%;
-}
-
-body {
-    font-size: 1.6rem;
-    font-family: $font-default;
-}
-
-.hf {
-    &-width {
-        padding: 0 2rem;
-        @media screen and (min-width: $bp-small) {
-            padding: 0 15rem;
-        }
-    }
+    font: inherit;
 }

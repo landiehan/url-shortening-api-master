@@ -1,4 +1,5 @@
 .head {
+    @extend %width-controller;
     display: flex;
     align-items: center;
     height: 73px;

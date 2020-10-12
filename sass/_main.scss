@@ -1,21 +1,23 @@
 .main {
     &-intro {
+        @extend %width-controller;
         display: flex;
-        flex-direction: column; 
-        margin-right: 0;     
+        flex-direction: column;     
         @media screen and (min-width: $bp-small) {
             flex-direction: row-reverse;
             justify-content: space-between;
             align-items: center;
-            margin-left: 15rem;
         }
 
         &-img {
-            object-fit: cover;
-            object-position: left;
+            height: calc(100vw - 4rem); // = width
+            img {
+                object-fit: cover;
+                max-height: 100%;               
+            }
         }
 
-        &-wrapper {
+        &-detail {
             margin: 2rem;
             * {
                 margin: 1rem 0;
@@ -24,7 +26,9 @@
 
             h1 {
                 font-size: 4rem;
+                font-weight: $font-bold;
                 line-height: 1.2;
+                color: $very-dark-violet;
             }
             p {
                 font-size: 1.8rem;
@@ -46,13 +50,14 @@
                 text-align: start;
                 h1 {
                     font-size: 6rem;
-                    letter-spacing: -0.03em;                    
+                    letter-spacing: -0.035em;                    
                 }
             }
         }
     }
 
     &-shorten {
+        @extend %width-controller;
         padding-top: 6rem;
         padding-bottom: 6rem;
         position: relative;
@@ -61,9 +66,9 @@
             position: absolute;
             top: 13rem;
             bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba($dark-violet, .1);
+            left: -2rem;
+            right: -2rem;
+            background-color: $light-violet;
             z-index: -1;
         }        
 
@@ -96,62 +101,79 @@
                 font-weight: $font-bold;
                 color: white;
                 background-color: $cyan;
-                padding: 1rem;
+                padding: 1rem 3rem;
                 border-radius: .5rem;
             }
 
             @media screen and (min-width: $bp-small) {
                 flex-direction: unset;
-                padding: 4rem;
                 background-image: url(../images/bg-shorten-desktop.svg);
+                padding: 4rem 4rem 2rem;
                 max-width: 1110px;
 
                 * {
                     border-radius: 1rem;
                 }
-
+                &-input_wrapper {
+                    flex: 1;
+                    p {
+                        font-size: 1.3rem;
+                        height: 1.2;
+                    }
+                }
                 button {
-                    flex: 200px;
                     margin-left: 1.5rem;
+                    margin-bottom: 2rem;
                 }
             }
         }
     }
 
     &-shorten-result {
-        margin: 2rem 0;
+        // card like :)
         background-color: white;
         border-radius: .5rem;
+        // gap between & in cards
+        margin-top: 2rem;
+        padding: 2rem;
 
-        div {
-            padding: 0 2rem;
-            p, a {
-                padding: 1.5rem 0;
-            }
-        }
-
+        // original full URL 🌳
         &-origin {
-            border-bottom: 2px solid rgba(black, .1);
             p {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
             }
+            &::after {
+                content: '';
+                display: block;
+                height: 1rem;
+                border-bottom: 1px solid rgba(black, .1);
+            }          
         }
-
+        // result URL & COPY button 🌳
         &-final {
             a {
-                display: inline-block;
-                color: $cyan;
+                color: $cyan;                
+                display: block;
+                margin: 1rem 0;
             }
             button {
-                padding: 1rem;
+                @extend %button-rounded_box;
                 width: 100%;
-                border: none;
-                border-radius: .5rem;
-                color: white;
-                background-color: $cyan;
-                margin-bottom: 2rem;
+                cursor: pointer;
+            }
+        }
+
+        @media screen and (min-width: $bp-medium) {
+            display: flex;
+            &-final {
+                flex: 1;
+                display: flex;
+                justify-content: flex-end;
+                button {
+                    
+                }
             }
         }
     }
@@ -161,7 +183,7 @@
         flex-direction: column;
         align-items: center;
         text-align: center; 
-        background-color: rgba($dark-violet, .1);
+        background-color: $light-violet;
 
         &__title {
             font-size: 3rem;
@@ -175,6 +197,8 @@
         }
 
         &-card {
+            @extend %width-controller;
+
             display: flex;
             flex-direction: column;
             align-items: center;
