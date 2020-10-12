@@ -44,6 +44,7 @@ function shortenURL(e) {
 }
 
 function displayResults(hashid) {
+    let resultURL = `https://rel.ink/${hashid}`;
     let resultCard = document.createElement('section');
     resultCard.classList.add('main-shorten-result');
     resultCard.innerHTML = `
@@ -61,11 +62,10 @@ function displayResults(hashid) {
     
     let btn = resultCard.querySelector('button');
     btn.addEventListener('click', function copyURL() {
-        let resultURL = `https://rel.ink/${hashid}`;
         navigator.clipboard.writeText(resultURL)
         .then(function btnCopied() {
             btn.innerText = 'Copied!';
             btn.style.backgroundColor = 'hsl(257, 27%, 26%)';             
-        })
+        });
     });
 }
