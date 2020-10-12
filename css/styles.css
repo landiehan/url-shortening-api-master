@@ -13,6 +13,9 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Poppins", sans-serif;
+  max-width: 1440px;
+  margin: 0 auto;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
 }
 
 /* BUTTON EXTEND */
@@ -27,7 +30,7 @@ body {
 .main-features-card, .main-shorten, .main-intro, .head {
   margin: 0 2rem;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 1024px) {
   .main-features-card, .main-shorten, .main-intro, .head {
     max-width: 1110px;
     margin: 0 auto;
@@ -68,7 +71,7 @@ input {
 }
 @media screen and (min-width: 480px) {
   .head {
-    margin-top: 4rem;
+    padding-top: 3rem;
   }
 }
 .head-brand {
@@ -158,11 +161,12 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   display: flex;
   flex-direction: column;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 768px) {
   .main-intro {
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
+    margin-top: 4rem;
   }
 }
 .main-intro-img {
@@ -174,22 +178,33 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   object-fit: cover;
   max-height: 100%;
 }
+@media screen and (min-width: 768px) {
+  .main-intro-img {
+    max-height: 482px;
+    max-width: 733px;
+    position: relative;
+    left: calc((1440px - 1110px) / 2);
+  }
+}
 .main-intro-detail {
-  margin: 2rem;
+  font-size: 62.5%;
+  margin: 2rem 0 0;
   text-align: center;
 }
-.main-intro-detail * {
-  margin: 1rem 0;
-}
 .main-intro-detail h1 {
-  font-size: 4rem;
+  font-size: 4em;
   font-weight: 700;
   line-height: 1.2;
+  letter-spacing: -0.035em;
   color: #232127;
+}
+.main-intro-detail h1 span {
+  display: block;
 }
 .main-intro-detail p {
   font-size: 1.8rem;
   color: #9e9aa7;
+  margin: 2rem 0;
 }
 .main-intro-detail a {
   display: inline-block;
@@ -199,16 +214,16 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   color: white;
   background-color: #2acfcf;
   padding: 1rem 3rem;
+  margin: 1rem 0;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 1024px) {
   .main-intro-detail {
-    margin-left: 0;
-    max-width: 52rem;
+    min-width: 552px;
     text-align: start;
+    font-size: 125%;
   }
-  .main-intro-detail h1 {
-    font-size: 6rem;
-    letter-spacing: -0.035em;
+  .main-intro-detail p {
+    font-size: 2rem;
   }
 }
 .main-shorten {
@@ -226,6 +241,12 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   background-color: #eff0f5;
   z-index: -1;
 }
+@media screen and (min-width: 480px) {
+  .main-shorten::after {
+    left: calc((-1440px + 1110px) / 2);
+    right: calc((-1440px + 1110px) / 2);
+  }
+}
 .main-shorten-form {
   display: flex;
   flex-direction: column;
@@ -234,6 +255,7 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   background-color: #3b3054;
   background-image: url(../images/bg-shorten-mobile.svg);
   background-repeat: no-repeat;
+  background-size: cover;
   background-position: right top;
 }
 .main-shorten-form-input_wrapper input {
@@ -258,7 +280,7 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   .main-shorten-form {
     flex-direction: unset;
     background-image: url(../images/bg-shorten-desktop.svg);
-    padding: 4rem 4rem 2rem;
+    padding: 6rem 6rem 4rem;
     max-width: 1110px;
   }
   .main-shorten-form * {
@@ -266,6 +288,9 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   }
   .main-shorten-form-input_wrapper {
     flex: 1;
+  }
+  .main-shorten-form-input_wrapper input {
+    padding: 1.5rem;
   }
   .main-shorten-form-input_wrapper p {
     font-size: 1.3rem;
@@ -286,12 +311,15 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  max-width: 600px;
 }
-.main-shorten-result-origin::after {
-  content: "";
-  display: block;
-  height: 1rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+@media screen and (max-width: 768px) {
+  .main-shorten-result-origin::after {
+    content: "";
+    display: block;
+    height: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
 }
 .main-shorten-result-final a {
   color: #2acfcf;
@@ -304,12 +332,18 @@ input[type=checkbox]:checked ~ .head-menu-nav {
 }
 @media screen and (min-width: 768px) {
   .main-shorten-result {
+    font-size: 18px;
     display: flex;
+    align-items: center;
   }
   .main-shorten-result-final {
     flex: 1;
     display: flex;
     justify-content: flex-end;
+    gap: 2rem;
+  }
+  .main-shorten-result-final button {
+    width: unset;
   }
 }
 .main-features {
@@ -400,6 +434,7 @@ input[type=checkbox]:checked ~ .head-menu-nav {
 @media screen and (min-width: 480px) {
   .main-invite {
     background-image: url(../images/bg-boost-desktop.svg);
+    background-size: cover;
     height: 250px;
   }
 }
@@ -411,6 +446,22 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   align-items: center;
   text-align: center;
   padding: 4rem 0;
+}
+@media screen and (min-width: 1024px) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .footer-brand {
+    align-self: flex-start;
+    margin-top: 3rem;
+  }
+  .footer-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 10rem;
+    text-align: start;
+  }
 }
 .footer-brand svg path {
   fill: white;

@@ -3,38 +3,49 @@
         @extend %width-controller;
         display: flex;
         flex-direction: column;     
-        @media screen and (min-width: $bp-small) {
+        @media screen and (min-width: $bp-medium) {
             flex-direction: row-reverse;
             justify-content: space-between;
             align-items: center;
+            margin-top: 4rem;
         }
 
         &-img {
             height: calc(100vw - 2rem);
             width: calc(100vw - 2rem);
-            overflow: hidden;
+            overflow: hidden; 
             img {
                 object-fit: cover;
                 max-height: 100%;               
+            }        
+
+            @media screen and (min-width: $bp-medium) {
+                max-height: 482px;
+                max-width: 733px;
+                position: relative;
+                left: calc((1440px - 1110px) / 2);
             }
         }
 
         &-detail {
-            margin: 2rem;
-            * {
-                margin: 1rem 0;
-            }
+            font-size: 62.5%;
+            margin: 2rem 0 0;
             text-align: center;
 
             h1 {
-                font-size: 4rem;
+                font-size: 4em;
                 font-weight: $font-bold;
                 line-height: 1.2;
+                letter-spacing: -0.035em;
                 color: $very-dark-violet;
+                span {
+                    display: block;
+                }
             }
             p {
                 font-size: 1.8rem;
                 color: $grayish-violet;
+                margin: 2rem 0;
             }
             a {
                 display: inline-block;
@@ -44,15 +55,15 @@
                 color: white;
                 background-color: $cyan;
                 padding: 1rem 3rem;
+                margin: 1rem 0;
             }            
             
-            @media screen and (min-width: $bp-small) {
-                margin-left: 0;
-                max-width: 52rem;
+            @media screen and (min-width: $bp-large) {
+                min-width: 552px;
                 text-align: start;
-                h1 {
-                    font-size: 6rem;
-                    letter-spacing: -0.035em;                    
+                font-size: 125%;
+                p {
+                    font-size: 2rem;
                 }
             }
         }
@@ -72,6 +83,10 @@
             right: -2rem;
             background-color: $light-violet;
             z-index: -1;
+            @media screen and (min-width: $bp-small) {
+                left: calc((-1440px + 1110px) / 2);
+                right: calc((-1440px + 1110px) / 2);
+            }
         }        
 
         &-form {
@@ -83,6 +98,7 @@
             background-color: $dark-violet;
             background-image: url(../images/bg-shorten-mobile.svg);
             background-repeat: no-repeat;
+            background-size: cover;
             background-position: right top;
 
             &-input_wrapper {
@@ -110,7 +126,7 @@
             @media screen and (min-width: $bp-small) {
                 flex-direction: unset;
                 background-image: url(../images/bg-shorten-desktop.svg);
-                padding: 4rem 4rem 2rem;
+                padding: 6rem 6rem 4rem;
                 max-width: 1110px;
 
                 * {
@@ -118,6 +134,9 @@
                 }
                 &-input_wrapper {
                     flex: 1;
+                    input {
+                        padding: 1.5rem;
+                    }
                     p {
                         font-size: 1.3rem;
                         height: 1.2;
@@ -145,13 +164,16 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
+                max-width: 600px;
             }
-            &::after {
-                content: '';
-                display: block;
-                height: 1rem;
-                border-bottom: 1px solid rgba(black, .1);
-            }          
+            @media screen and (max-width: $bp-medium) {
+                &::after {
+                    content: '';
+                    display: block;
+                    height: 1rem;
+                    border-bottom: 1px solid rgba(black, .1);
+                }     
+            }     
         }
         // result URL & COPY button 🌳
         &-final {
@@ -168,13 +190,16 @@
         }
 
         @media screen and (min-width: $bp-medium) {
+            font-size: 18px;
             display: flex;
+            align-items: center;
             &-final {
                 flex: 1;
                 display: flex;
                 justify-content: flex-end;
+                gap: 2rem;
                 button {
-                    
+                    width: unset;
                 }
             }
         }
@@ -279,6 +304,7 @@
 
         @media screen and (min-width: $bp-small) {
             background-image: url(../images/bg-boost-desktop.svg);
+            background-size: cover;
             height: 250px;
         }
     }
