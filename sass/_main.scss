@@ -1,9 +1,12 @@
 .main {
     &-intro {
         @extend %width-controller;
+        @media screen and (min-width: $bp-small) and (max-width: $bp-large) {
+            margin-right: 0;
+        }
         display: flex;
         flex-direction: column;     
-        @media screen and (min-width: $bp-medium) {
+        @media screen and (min-width: $bp-semi-medium) {
             flex-direction: row-reverse;
             justify-content: space-between;
             align-items: center;
@@ -11,7 +14,7 @@
         }
 
         &-img {
-            height: calc(100vw - 2rem);
+            max-height: calc(100vw - 2rem);
             width: calc(100vw - 2rem);
             overflow: hidden; 
             img {
@@ -19,7 +22,7 @@
                 max-height: 100%;               
             }        
 
-            @media screen and (min-width: $bp-medium) {
+            @media screen and (min-width: $bp-large) {
                 max-height: 482px;
                 max-width: 733px;
                 position: relative;
@@ -56,8 +59,20 @@
                 background-color: $cyan;
                 padding: 1rem 3rem;
                 margin: 1rem 0;
+                &:active {
+                    background-color: lighten($cyan, 30%);
+                }
+                cursor: pointer;
             }            
             
+            @media screen and (min-width: $bp-semi-medium) {
+                min-width: 200px;
+                text-align: start;
+                p {
+                    font-size: 2rem;
+                }
+            }
+
             @media screen and (min-width: $bp-large) {
                 min-width: 552px;
                 text-align: start;
@@ -123,7 +138,7 @@
                 border-radius: .5rem;
             }
 
-            @media screen and (min-width: $bp-small) {
+            @media screen and (min-width: $bp-medium) {
                 flex-direction: unset;
                 background-image: url(../images/bg-shorten-desktop.svg);
                 padding: 6rem 6rem 4rem;

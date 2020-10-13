@@ -27,7 +27,7 @@
             &-hide {
                 display: none;
             }
-            @media screen and (min-width: $bp-small) {
+            @media screen and (min-width: $bp-medium) {
                 display: none;
             }
         }
@@ -68,10 +68,13 @@
                     line-height: 4rem;
                     border-radius: 2rem;
                     background-color: $cyan;
+                    &:active {
+                        background-color: lighten($cyan, 30%);
+                    }
                 }                 
             }      
 
-            @media screen and (min-width: $bp-large) {
+            @media screen and (min-width: $bp-medium) {
                 display: block;
                 margin-left: 2rem;
                 color: gray;

@@ -93,7 +93,7 @@ input {
 .head-menu-switcher-hide {
   display: none;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 800px) {
   .head-menu-switcher {
     display: none;
   }
@@ -131,7 +131,10 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   border-radius: 2rem;
   background-color: #2acfcf;
 }
-@media screen and (min-width: 1024px) {
+.head-menu-nav-ul-sign li:last-of-type:active {
+  background-color: #a6eded;
+}
+@media screen and (min-width: 800px) {
   .head-menu-nav {
     display: block;
     margin-left: 2rem;
@@ -172,7 +175,12 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   display: flex;
   flex-direction: column;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 480px) and (max-width: 1024px) {
+  .main-intro {
+    margin-right: 0;
+  }
+}
+@media screen and (min-width: 600px) {
   .main-intro {
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -181,7 +189,7 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   }
 }
 .main-intro-img {
-  height: calc(100vw - 2rem);
+  max-height: calc(100vw - 2rem);
   width: calc(100vw - 2rem);
   overflow: hidden;
 }
@@ -189,7 +197,7 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   object-fit: cover;
   max-height: 100%;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .main-intro-img {
     max-height: 482px;
     max-width: 733px;
@@ -226,6 +234,19 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   background-color: #2acfcf;
   padding: 1rem 3rem;
   margin: 1rem 0;
+  cursor: pointer;
+}
+.main-intro-detail a:active {
+  background-color: #a6eded;
+}
+@media screen and (min-width: 600px) {
+  .main-intro-detail {
+    min-width: 200px;
+    text-align: start;
+  }
+  .main-intro-detail p {
+    font-size: 2rem;
+  }
 }
 @media screen and (min-width: 1024px) {
   .main-intro-detail {
@@ -287,7 +308,7 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   padding: 1rem 3rem;
   border-radius: 0.5rem;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 800px) {
   .main-shorten-form {
     flex-direction: unset;
     background-image: url(../images/bg-shorten-desktop.svg);
@@ -329,7 +350,7 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   white-space: nowrap;
   max-width: 600px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .main-shorten-result-origin::after {
     content: "";
     display: block;
@@ -346,7 +367,7 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   width: 100%;
   cursor: pointer;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 800px) {
   .main-shorten-result {
     font-size: 18px;
     display: flex;
