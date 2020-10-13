@@ -29,6 +29,7 @@
 
     &-nav-links {
         &__title {
+            font-size: 1.8rem;
             color: white;
             margin: 3rem 0 2rem;
         }
@@ -46,6 +47,13 @@
                 li {
                     margin: 3rem 1rem 0;
                 }            
+            }
+        }
+
+        a:hover {
+            color: $cyan;
+            svg path{
+                fill: $cyan;
             }
         }
     }

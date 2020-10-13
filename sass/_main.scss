@@ -129,6 +129,8 @@
                 padding: 6rem 6rem 4rem;
                 max-width: 1110px;
 
+                font-size: 1.8rem;
+
                 * {
                     border-radius: 1rem;
                 }
@@ -138,13 +140,14 @@
                         padding: 1.5rem;
                     }
                     p {
-                        font-size: 1.3rem;
-                        height: 1.2;
+                        font-size: 1.6rem;
+                        margin-top: .5rem;
                     }
                 }
                 button {
                     margin-left: 1.5rem;
                     margin-bottom: 2rem;
+                    padding: 1.5rem 4rem;
                 }
             }
         }
@@ -212,15 +215,32 @@
         text-align: center; 
         background-color: $light-violet;
 
-        &__title {
-            font-size: 3rem;
-            margin: 2rem 0;
+        &-intro {
+            &-wrapper {
+                @extend %width-controller;
+                margin-bottom: 8rem;
+                @media screen and (min-width: $bp-large) {
+                    max-width: 46rem;
+                }
+            }
+
+            &__title {
+                font-size: 3rem;
+                @media screen and (min-width: $bp-large) {
+                    font-size: 4rem;
+                }
+                margin: 2rem 0;
+            }
+            &__description {
+                color: $grayish-violet;
+            }
         }
-        &__description {
-            color: $grayish-violet;
-        }
-        &-wrapper {
-            margin-bottom: 8rem;
+
+        &-cards_wrapper {
+            @media screen and (min-width: $bp-large) {
+                display: flex;
+                gap: 30px;
+            }
         }
 
         &-card {
@@ -229,8 +249,31 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+
+            border-radius: .5rem;
+            background-color: white;
+
             padding: 6rem 3rem 4rem;
+            margin-bottom: 90px;
+
+            &__title {
+                font-size: 2.4rem;
+                margin: 1rem 0
+            }
+            &__description {
+                color: $grayish-violet;
+            }
+
+            @media screen and (min-width: $bp-large) {
+                width: 37rem;
+                height: 26rem;
+                align-items: stretch;
+                margin-bottom: 10rem;
+                text-align: start;
+            }       
+
             position: relative;
+            /* container circle for icon */
             &::before {
                 content: '';
                 width: 80px;
@@ -241,15 +284,9 @@
                 background-color: $dark-violet;
                 background-repeat: no-repeat;
                 background-position: center;
-            }
-
-            border-radius: .5rem;
-            background-color: white;
-            margin-bottom: 90px;
-
-            &__title {
-                font-size: 2.4rem;
-                margin: 1rem 0
+                @media screen and (min-width: $bp-large) {
+                    left: 30px;
+                }
             }
 
             &::after {
@@ -259,13 +296,25 @@
                 background-color: $cyan;
                 position: absolute;
                 bottom: -50px;
+                @media screen and (min-width: $bp-large) {
+                    height: 8px;
+                    width: 30px;
+                    bottom: 100px;
+                    right: -30px;
+                }
             }
 
             &-1::before {
                 background-image: url(../images/icon-brand-recognition.svg);
             }
-            &-2::before {
-                background-image: url(../images/icon-detailed-records.svg);
+            &-2 {
+                &::before {
+                    background-image: url(../images/icon-detailed-records.svg);
+                }
+
+                @media screen and (min-width: $bp-large) {
+                    margin-top: 40px;
+                }
             }
             &-3 {
                 &::before {
@@ -273,6 +322,10 @@
                 }
                 &::after {
                     content: none;
+                }
+
+                @media screen and (min-width: $bp-large) {
+                    margin-top: 80px;
                 }
             }
         }
@@ -302,10 +355,18 @@
             font-weight: $font-bold;
         }
 
-        @media screen and (min-width: $bp-small) {
+        @media screen and (min-width: $bp-large) {
             background-image: url(../images/bg-boost-desktop.svg);
             background-size: cover;
             height: 250px;
+
+            &__title {
+                font-size: 3.5rem;
+            }
+
+            a {
+                margin-top: 3rem;
+            }
         }
     }
 }
