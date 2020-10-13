@@ -15,7 +15,7 @@ body {
   font-family: "Poppins", sans-serif;
   max-width: 1440px;
   margin: 0 auto;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* BUTTON EXTEND */
@@ -245,7 +245,7 @@ input[type=checkbox]:checked ~ .head-menu-nav {
 .main-shorten::after {
   content: "";
   position: absolute;
-  top: 13rem;
+  top: 15rem;
   bottom: 0;
   left: -2rem;
   right: -2rem;
@@ -293,6 +293,7 @@ input[type=checkbox]:checked ~ .head-menu-nav {
     background-image: url(../images/bg-shorten-desktop.svg);
     padding: 6rem 6rem 4rem;
     max-width: 1110px;
+    height: 185px;
     font-size: 1.8rem;
   }
   .main-shorten-form * {
@@ -303,6 +304,8 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   }
   .main-shorten-form-input_wrapper input {
     padding: 1.5rem;
+    height: 60px;
+    align-self: flex-start;
   }
   .main-shorten-form-input_wrapper p {
     font-size: 1.6rem;
@@ -310,8 +313,8 @@ input[type=checkbox]:checked ~ .head-menu-nav {
   }
   .main-shorten-form button {
     margin-left: 1.5rem;
-    margin-bottom: 2rem;
-    padding: 1.5rem 4rem;
+    height: 60px;
+    align-self: flex-start;
   }
 }
 .main-shorten-result {
@@ -356,7 +359,7 @@ input[type=checkbox]:checked ~ .head-menu-nav {
     gap: 2rem;
   }
   .main-shorten-result-final button {
-    width: unset;
+    width: 130px;
   }
 }
 .main-features {
